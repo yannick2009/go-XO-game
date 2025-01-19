@@ -1,4 +1,4 @@
-==================== RULES ====================
+============================== RULES ==============================
 
 Tic Tac Toe is a simple yet strategic game played on a 3x3 grid where two players compete to win. Each player chooses a symbol, traditionally "X" or "O", and takes turns marking an empty square on the board. The fundamental goal is to create a continuous line of three identical symbols either horizontally, vertically, or diagonally before the opponent can do so.
 
