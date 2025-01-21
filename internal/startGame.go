@@ -29,6 +29,7 @@ func InitGame() {
 // Show the game rules before to play
 func showRules() {
 	reader := bufio.NewReader(os.Stdin)
+	// Ask to the player to press enter to continue
 	for {
 		fmt.Printf(pressEnterMsg + " ")
 		input, err := reader.ReadString('\n')
@@ -39,9 +40,5 @@ func showRules() {
 			break
 		}
 	}
-}
-
-// ask to the player 1 to choose his symbol
-func AskToChooseSymbol() {
-	fmt.Println(utils.BorderText(constants.ChooseSymbolMsg))
+	utils.ClearStdout(0)
 }
