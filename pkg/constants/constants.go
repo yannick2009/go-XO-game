@@ -11,7 +11,7 @@ __  _____         ____    _    __  __ _____
 We are going to show you the rule in few seconds.
 
 
-    Developed with ❤️ by: @Baby_Desiigner
+    Developed with ❤️ by: @yannick2009
 ` // Initial game message
 
 const (
