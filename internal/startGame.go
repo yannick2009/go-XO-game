@@ -7,9 +7,9 @@ import (
 	"log"
 	"os"
 
-	"github.com/go-terminal-OX/pkg/constants"
-	"github.com/go-terminal-OX/pkg/utils"
-	"github.com/go-terminal-OX/pkg/vars"
+	"github.com/go-OX-game/pkg/constants"
+	"github.com/go-OX-game/pkg/utils"
+	"github.com/go-OX-game/pkg/vars"
 )
 
 // InitGame prints the initial game message

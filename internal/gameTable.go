@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/go-terminal-OX/pkg/vars"
+	"github.com/go-OX-game/pkg/vars"
 )
 
 // GameTable is the game table

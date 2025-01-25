@@ -3,8 +3,8 @@ package internal
 import (
 	"fmt"
 
-	"github.com/go-terminal-OX/pkg/constants"
-	"github.com/go-terminal-OX/pkg/utils"
+	"github.com/go-OX-game/pkg/constants"
+	"github.com/go-OX-game/pkg/utils"
 )
 
 // Generate the delay output

@@ -3,9 +3,9 @@ package internal
 import (
 	"fmt"
 
-	"github.com/go-terminal-OX/pkg/constants"
-	"github.com/go-terminal-OX/pkg/utils"
-	"github.com/go-terminal-OX/pkg/vars"
+	"github.com/go-OX-game/pkg/constants"
+	"github.com/go-OX-game/pkg/utils"
+	"github.com/go-OX-game/pkg/vars"
 )
 
 // PlayGame is the function that start the game
@@ -39,7 +39,7 @@ func PlayGame() {
 			}
 			break
 		}
-		
+
 		Play(key)
 		TurnPlayer()
 		utils.ClearStdout(0)

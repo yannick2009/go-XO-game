@@ -1,6 +1,6 @@
 package internal
 
-import "github.com/go-terminal-OX/pkg/vars"
+import "github.com/go-OX-game/pkg/vars"
 
 // CheckWinner is a function that checks if there is a winner in the game
 func CheckWinner() bool {

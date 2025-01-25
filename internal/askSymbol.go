@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/go-terminal-OX/pkg/constants"
-	"github.com/go-terminal-OX/pkg/utils"
-	"github.com/go-terminal-OX/pkg/vars"
+	"github.com/go-OX-game/pkg/constants"
+	"github.com/go-OX-game/pkg/utils"
+	"github.com/go-OX-game/pkg/vars"
 )
 
 // ask to the player 1 to choose his symbol

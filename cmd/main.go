@@ -5,9 +5,9 @@ import (
 	"os"
 	"os/signal"
 
-	"github.com/go-terminal-OX/internal"
-	"github.com/go-terminal-OX/pkg/constants"
-	"github.com/go-terminal-OX/pkg/utils"
+	"github.com/go-OX-game/internal"
+	"github.com/go-OX-game/pkg/constants"
+	"github.com/go-OX-game/pkg/utils"
 )
 
 func init() {
