@@ -9,32 +9,25 @@ import (
 
 	"github.com/go-terminal-OX/pkg/constants"
 	"github.com/go-terminal-OX/pkg/utils"
-)
-
-const clearSecond = 3
-const pressEnterMsg = "Press ENTER to continue !"
-
-var (
-	ErrReadStdin = errors.New("error reading from stdin")
+	"github.com/go-terminal-OX/pkg/vars"
 )
 
 // InitGame prints the initial game message
 func InitGame() {
 	fmt.Print(constants.InitGameMsg)
-	utils.ClearStdout(clearSecond)
-	fmt.Print(constants.Rules)
+	utils.ClearStdout(3)
+	fmt.Print(vars.Rules)
 	showRules()
 }
 
 // Show the game rules before to play
 func showRules() {
 	reader := bufio.NewReader(os.Stdin)
-	// Ask to the player to press enter to continue
 	for {
-		fmt.Printf(pressEnterMsg + " ")
+		fmt.Printf(constants.PressEnterMsg + " ")
 		input, err := reader.ReadString('\n')
 		if err != nil {
-			log.Fatal(errors.Join(ErrReadStdin, err))
+			log.Fatal(errors.Join(errors.New("error reading from stdin"), err))
 		}
 		if input == "\n" {
 			break

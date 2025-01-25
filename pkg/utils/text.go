@@ -19,5 +19,6 @@ func ArroundText(text string) string {
 	borderSymbol := "="
 	symbolCount := 5
 	border := strings.Repeat(borderSymbol, symbolCount)
+	
 	return border + " " + text + " " + border
 }
