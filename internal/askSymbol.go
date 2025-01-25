@@ -6,6 +6,7 @@ import (
 
 	"github.com/go-terminal-OX/pkg/constants"
 	"github.com/go-terminal-OX/pkg/utils"
+	"github.com/go-terminal-OX/pkg/vars"
 )
 
 // ask to the player 1 to choose his symbol
@@ -30,7 +31,12 @@ func AskToChooseSymbol() {
 	switch strings.ToLower(symbolChoosed) {
 	case xSymbol:
 		fmt.Printf(phraseTmpl, strings.ToUpper(xSymbol), strings.ToUpper(oSymbol))
+		vars.PlayerOneSymbol = xSymbol
+		vars.PlayerTwoSymbol = oSymbol
 	case oSymbol:
 		fmt.Printf(phraseTmpl, strings.ToUpper(oSymbol), strings.ToUpper(xSymbol))
+		vars.PlayerOneSymbol = oSymbol
+		vars.PlayerTwoSymbol = xSymbol
 	}
+	utils.ClearStdout(1)
 }
