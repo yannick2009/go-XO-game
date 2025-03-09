@@ -8,18 +8,18 @@ import (
 )
 
 // Generate the delay output
-func genDelayOutput(number string) {
+func genDelayOutput(numStr string) {
 	fmt.Println("The game start in: ")
-	fmt.Print(number)
+	fmt.Print(numStr)
 }
 
 // DelayStart is a function that generates a delay before starting the game
 func DelayStart() {
+	utils.ClearStdout(1)
 	delayNumbers := []string{constants.One, constants.Two, constants.Three}
-	for _, num := range delayNumbers {
-		genDelayOutput(num)
+	for _, numStr := range delayNumbers {
+		genDelayOutput(numStr)
 		utils.ClearStdout(1)
 	}
 	fmt.Print(constants.GoMsg)
-	utils.ClearStdout(1)
 }
