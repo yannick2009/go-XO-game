@@ -4,11 +4,12 @@ import _ "embed"
 
 var (
 	//go:embed rules.txt
-	Rules           string     // Rules of the game
-	RemainingMoves  uint   = 9 // Party action
-	ActivePlayer    int        // Active player
-	PlayerOneSymbol string     // Player one symbol
-	PlayerTwoSymbol string     // Player two symbol
+	Rules           string // Rules of the game
+	ActivePlayer    int    // Active player
+	PlayerOneSymbol string // Player one symbol
+	PlayerTwoSymbol string // Player two symbol
+
+	MyTurn bool // My turn
 
 	ValidKeysArr      []string           = []string{"a", "z", "e", "q", "s", "d", "w", "x", "c"} // Valid keys list
 	GameBoard         [3][3]string                                                               // Game board
