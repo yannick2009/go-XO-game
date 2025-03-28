@@ -1,13 +1,15 @@
 package main
 
 import (
-	"fmt"
-	"os"
-	"os/signal"
+	"flag"
+	"log"
+	"net/http"
 
-	"github.com/go-OX-game/internal"
-	"github.com/go-OX-game/pkg/constants"
+	"github.com/go-OX-game/internal/handlers"
+	"github.com/go-OX-game/internal/services"
+	"github.com/go-OX-game/pkg/config"
 	"github.com/go-OX-game/pkg/utils"
+	"github.com/gorilla/websocket"
 )
 
 func init() {
@@ -16,20 +18,28 @@ func init() {
 }
 
 func main() {
-	c := make(chan os.Signal, 1)
-	signal.Notify(c, os.Interrupt)
-	go func() {
-		<-c
-		utils.ClearStdout(0)
-		fmt.Println(constants.QuitGameMsg)
-		os.Exit(0)
-	}()
-	// Start the game
-	internal.InitGame()
-	// Ask for the player one to choose his symbol between X or O
-	internal.AskToChooseSymbol()
-	// a 3 seconds delay before starting the game
-	internal.DelayStart()
-	// start the game
-	internal.PlayGame()
+	// Parse command line arguments for client
+	serverURL := flag.String("url", "", "Server URL")
+	client := flag.Bool("client", false, "Run the client")
+	// Parse command line arguments for server
+	server := flag.Bool("server", false, "Run the server")
+	flag.Parse()
+
+	if *server {
+		http.HandleFunc("/ws", handlers.ServerHandler)
+		log.Printf("Serveur WebSocket démarré sur ws://%s:3000/ws", utils.GetMyIP())
+		log.Fatal(http.ListenAndServe(":3000", nil))
+		return
+	} else if *client {
+		conn, _, err := websocket.DefaultDialer.Dial(*serverURL, nil)
+		if err != nil {
+			log.Fatal("Error when connecting to the server")
+		}
+		ws := config.NewClientWS(conn)
+		handlers.ClientHandler(ws)
+		return
+	} else {
+		services.LaunchNormalGame()
+	}
+
 }

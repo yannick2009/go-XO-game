@@ -4,13 +4,16 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/go-OX-game/pkg/config"
 	"github.com/go-OX-game/pkg/constants"
+	"github.com/go-OX-game/pkg/types"
 	"github.com/go-OX-game/pkg/utils"
 	"github.com/go-OX-game/pkg/vars"
 )
 
 // ask to the player 1 to choose his symbol
-func AskToChooseSymbol() {
+func AskToChooseSymbol(ws *config.WS) {
+	utils.ClearStdout(0)
 	// Define the symbols
 	xSymbol := "x"
 	oSymbol := "o"
@@ -38,5 +41,10 @@ func AskToChooseSymbol() {
 		vars.PlayerOneSymbol = oSymbol
 		vars.PlayerTwoSymbol = xSymbol
 	}
-	utils.ClearStdout(1)
+	if ws != nil {
+		ws.SendMsg(types.Message{
+			Type: constants.CHOOSE_SYMBOL,
+			Data: []byte(vars.PlayerTwoSymbol),
+		})
+	}
 }

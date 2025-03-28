@@ -9,7 +9,15 @@ func CheckWinner() bool {
 
 // CheckGameOver is a function that checks if the game is over
 func CheckGameOver() bool {
-	return vars.RemainingMoves == 0
+	board := vars.GameBoard
+	for i := range 3 {
+		for j := range 3 {
+			if board[i][j] == "" {
+				return false
+			}
+		}
+	}
+	return true
 }
 
 // CheckDiagonals is a function that checks the diagonals of the game board for a winner
