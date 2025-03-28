@@ -25,3 +25,13 @@ const (
 	Three = " _____ \n|___ / \n  |_ \\ \n ___) |\n|____/ "                                           // Three in ascii art
 	GoMsg = "  ____  ___  _ \n / ___|/ _ \\| |\n| |  _| | | | |\n| |_| | |_| |_|\n \\____|\\___|(_)" // Go! in ascii art
 )
+
+// ws message types
+const (
+	RULES_READED = iota
+	CHOOSE_SYMBOL
+	START_GAME
+	PLAY
+	QUIT
+	// END
+)
