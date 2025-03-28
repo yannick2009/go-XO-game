@@ -4,39 +4,88 @@ __  _____         ____    _    __  __ _____
  \  / | | |_____| |  _  / _ \ | |\/| |  _|  
  /  \ |_| |_____| |_| |/ ___ \| |  | | |___ 
 /_/\_\___/       \____/_/   \_\_|  |_|_____|
-  
 ```
 
-# DESCRIPTION
+# TIC TAC TOE - Terminal Game
 
-This project a Tic Tac Toe game that can be played by two players in the terminal and written in full Golang. The game is played on a 3x3 grid. The players take turns to place their mark on the grid. The first player to get three of their marks in a row (horizontally, vertically, or diagonally) wins the game. If the grid is full and no player has won, the game is a draw.
+A Go implementation of Tic Tac Toe that can be played in the terminal with multiple game modes.
 
-# INSTALLATION
+## DESCRIPTION
 
-To install the game, you need to have Golang installed on your machine. You can download Golang from the official website: https://golang.org/dl/
+This project is a Tic Tac Toe game developed entirely in Golang that can be played directly in the terminal. The game offers three different play modes:
 
-After installing Golang, you can clone the repository by running the following command in your terminal:
+- **Normal mode**: Two players compete on the same machine
+- **Server mode**: Hosts a game that a client can connect to
+- **Client mode**: Allows joining a game hosted on a server
+
+The game is played on a 3x3 grid where players take turns placing their mark (X or O). The first player to align three of their marks (horizontally, vertically, or diagonally) wins the game. If the grid is filled without a winner, the game is declared a draw.
+
+## INSTALLATION
+
+### Prerequisites
+
+- Go (version 1.16 or higher): [https://golang.org/dl/](https://golang.org/dl/)
+
+### Download
+
+Clone the repository to your machine:
 
 ```bash
-git clone
+git clone https://github.com/yannick2009/go-terminal-OX.git
+cd go-terminal-OX
 ```
 
-After cloning the repository, you can navigate to the project directory and run the following command to build the game:
+### Compilation
+
+Compile the game with the following command:
 
 ```bash
-go build -O xo-game cmd/main.go 
+go build -o xo-game cmd/main.go 
 ```
 
-This will create an executable file in the project directory. You can run the game by executing the following command:
+## USAGE
+
+### Normal mode (two local players)
+
+To start a local game with two players:
 
 ```bash
 ./xo-game
 ```
 
-# CONTRIBUTING
+### Server mode
 
-If you would like to contribute to the project, you can fork the repository and create a pull request with your changes. You can also create an issue if you find any bugs or have any suggestions for improvements.
+#### Prererequisites
 
-# MAINTAINERS
+You must be in the same network as the client. Make sure to allow WebSocket connections on your firewall.
 
-This project is maintained by: Yannick Kouakou [LinkedIn](https://www.linkedin.com/in/yannick-k-946970200/) | [GitHub](https://github.com/yannick2009/)
+To start the game in server mode, send the ip address printed to the client (2nd player) and wait for his connection:
+
+```bash
+./xo-game --server
+```
+
+### Client mode
+
+To join a game hosted on a server:
+
+```bash
+./xo-game -client --url=ws://<SERVER_IP_ADDRESS>/ws
+```
+
+## CONTRIBUTING
+
+Contributions are welcome! If you would like to contribute to this project:
+
+1. Fork the repository
+2. Create a branch for your feature (`git checkout -b new-feature`)
+3. Commit your changes (`git commit -m 'Add new feature'`)
+4. Push to the branch (`git push origin new-feature`)
+5. Create a Pull Request
+
+If you find bugs or have suggestions for improvements, feel free to open an issue.
+
+## MAINTAINERS
+
+This project is maintained by: Yannick Kouakou 
+[LinkedIn](https://www.linkedin.com/in/yannick-k-946970200/) | [GitHub](https://github.com/yannick2009/)
